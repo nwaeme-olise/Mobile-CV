@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/displayCvFragment"
         android:name="com.example.mobilecv.DisplayCvFragment"
-        android:label="fragment_display_cv"
-        tools:layout="@layout/fragment_display_cv" >
+        android:label="Home"
+        tools:layout="@layout/fragment_display_cv">
         <action
             android:id="@+id/action_displayCvFragment_to_updateCvFragment"
             app:destination="@id/updateCvFragment" />
@@ -17,6 +17,6 @@
     <fragment
         android:id="@+id/updateCvFragment"
         android:name="com.example.mobilecv.UpdateCvFragment"
-        android:label="fragment_update_cv"
+        android:label="Edit CV"
         tools:layout="@layout/fragment_update_cv" />
 </navigation>
