@@ -28,12 +28,14 @@ class UpdateCvFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.etName.setText(viewModel.name)
-        binding.etSlackName.setText(viewModel.slackName)
-        binding.etHandle.setText(viewModel.handle)
-        binding.etBio.setText(viewModel.bio)
-        binding.btnDone.visibility = GONE
+        updateViews()
 
+        setObservers()
+
+
+    }
+
+    private fun setObservers() {
         binding.etName.doAfterTextChanged {
             binding.btnDone.visibility = VISIBLE
         }
@@ -49,11 +51,19 @@ class UpdateCvFragment : Fragment() {
         binding.etBio.doAfterTextChanged {
             binding.btnDone.visibility = VISIBLE
         }
+    }
+
+    private fun updateViews() {
+        binding.etName.setText(viewModel.name)
+        binding.etSlackName.setText(viewModel.slackName)
+        binding.etHandle.setText(viewModel.handle)
+        binding.etBio.setText(viewModel.bio)
+        binding.btnDone.visibility = GONE
 
         binding.btnDone.setOnClickListener {
             viewModel.apply {
-                name= binding.etName.text.toString()
-                slackName= binding.etSlackName.text.toString()
+                name = binding.etName.text.toString()
+                slackName = binding.etSlackName.text.toString()
                 handle = binding.etHandle.text.toString()
                 bio = binding.etBio.text.toString()
             }
@@ -62,7 +72,6 @@ class UpdateCvFragment : Fragment() {
             findNavController().popBackStack()
 
         }
-
     }
 
     override fun onDestroy() {

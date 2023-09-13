@@ -24,6 +24,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:paddingBottom="50dp"
         tools:itemCount="3"
         tools:listitem="@layout/cv_item_layout" />
 
