@@ -1,6 +1,6 @@
 # Mobile-CV
 
-A native Android app that displays the user's CV digitally.
+A native Android app that displays the user's CV and also allows the user to edit the details.
 
 # App Description 
 
