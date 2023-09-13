@@ -39,20 +39,20 @@ class DisplayCvFragment : Fragment() {
 
     private fun setInitialValues() {
         viewModel.apply {
-            setName("Nwaeme Olisemeka")
-            setSlackName("O.Lee")
-            setHandle("nwaeme-olise")
-            setBio("Hi there! I’m Olise, a Software Engineer with a keen interest in developing native Android apps. I’m also a graduate of Computer Science from the University of Lagos.")
+            name = "Nwaeme Olisemeka"
+            slackName = "O.Lee"
+            handle = "nwaeme-olise"
+            bio = "Hi there! I’m Olise, a Software Engineer with a keen interest in developing native Android apps. I’m also a graduate of Computer Science from the University of Lagos."
         }
     }
 
     private fun setUpRecyclerView() {
         val fieldsAdapter = FieldsAdapter(
             listOf(
-                FieldItem("Name", viewModel.name.value?: ""),
-                FieldItem("Slack Name", viewModel.slackName.value ?: ""),
-                FieldItem("GitHub Handle", viewModel.handle.value ?: ""),
-                FieldItem("Bio", viewModel.bio.value ?: "")
+                FieldItem("Name", viewModel.name),
+                FieldItem("Slack Name", viewModel.slackName),
+                FieldItem("GitHub Handle", viewModel.handle),
+                FieldItem("Bio", viewModel.bio)
             )
         )
 

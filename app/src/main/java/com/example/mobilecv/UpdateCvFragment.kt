@@ -9,6 +9,7 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.mobilecv.databinding.FragmentUpdateCvBinding
 
 
@@ -27,10 +28,10 @@ class UpdateCvFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.etName.setText(viewModel.name.value)
-        binding.etSlackName.setText(viewModel.slackName.value)
-        binding.etHandle.setText(viewModel.handle.value)
-        binding.etBio.setText(viewModel.bio.value)
+        binding.etName.setText(viewModel.name)
+        binding.etSlackName.setText(viewModel.slackName)
+        binding.etHandle.setText(viewModel.handle)
+        binding.etBio.setText(viewModel.bio)
         binding.btnDone.visibility = GONE
 
         binding.etName.doAfterTextChanged {
@@ -51,13 +52,14 @@ class UpdateCvFragment : Fragment() {
 
         binding.btnDone.setOnClickListener {
             viewModel.apply {
-                setName(binding.etName.text.toString())
-                setSlackName(binding.etSlackName.text.toString())
-                setHandle(binding.etHandle.text.toString())
-                setBio(binding.etBio.text.toString())
+                name= binding.etName.text.toString()
+                slackName= binding.etSlackName.text.toString()
+                handle = binding.etHandle.text.toString()
+                bio = binding.etBio.text.toString()
             }
 
             binding.btnDone.visibility = GONE
+            findNavController().popBackStack()
 
         }
 
